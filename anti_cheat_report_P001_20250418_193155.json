@@ -1,0 +1,19 @@
+{
+    "timestamp": "2025-04-18 19:31:55",
+    "player_id": "P001",
+    "reputation": {
+        "score": 55.0,
+        "level": "REGULAR",
+        "history": [
+            {
+                "timestamp": "2025-04-18 19:31:55",
+                "event_type": "fair_play",
+                "severity": 1.0,
+                "score_change": 5.0,
+                "new_score": 55.0
+            }
+        ]
+    },
+    "ml_predictions": [],
+    "trust_factor": 0.55
+}

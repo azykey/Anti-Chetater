@@ -1,0 +1,42 @@
+{
+    "timestamp": "2025-04-18 19:33:59",
+    "player_id": "P002",
+    "reputation": {
+        "score": 52.0,
+        "level": "NORMAL",
+        "history": [
+            {
+                "timestamp": "2025-04-18 19:33:59",
+                "type": "fair_play",
+                "severity": 1.0
+            }
+        ]
+    },
+    "ml_predictions": [
+        {
+            "timestamp": "2025-04-18 19:33:59",
+            "suspicion_score": 0.2,
+            "messages": [
+                "Taxa de pontua\u00e7\u00e3o muito alta para o n\u00edvel de dificuldade"
+            ]
+        },
+        {
+            "timestamp": "2025-04-18 19:33:59",
+            "suspicion_score": 0.3,
+            "messages": [
+                "Precis\u00e3o sobre-humana"
+            ]
+        },
+        {
+            "timestamp": "2025-04-18 19:33:59",
+            "suspicion_score": 1.0,
+            "messages": [
+                "Velocidade de movimento anormal",
+                "Precis\u00e3o sobre-humana",
+                "Tempo de rea\u00e7\u00e3o imposs\u00edvel",
+                "Taxa de pontua\u00e7\u00e3o muito alta para o n\u00edvel de dificuldade"
+            ]
+        }
+    ],
+    "trust_factor": 1
+}
