@@ -342,4 +342,17 @@ Adilson Oliveira (Key)
 
 ---
 
-⭐️ Se este projeto te ajudou, considere dar uma estrela! 
+⭐️ Se este projeto te ajudou, considere dar uma estrela!   
+
+![Captura de tela 2025-04-18 214944](https://github.com/user-attachments/assets/9331e5b9-c46a-44ee-a105-50263a95508d)
+
+![Captura de tela 2025-04-18 215002](https://github.com/user-attachments/assets/2bfee424-678d-47a1-af78-6283c15a255f)
+
+![Captura de tela 2025-04-18 215013](https://github.com/user-attachments/assets/56259ed3-1137-48f8-9615-abaf4e078293)
+
+![Captura de tela 2025-04-18 215024](https://github.com/user-attachments/assets/6874aea4-6cae-4e29-ac15-f3e275d42446)
+
+
+
+
+
