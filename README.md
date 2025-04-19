@@ -254,6 +254,26 @@ O sistema utiliza uma matriz de probabilidade de transição quântica:
 ### Entidade Principal
 
 ```vhdl
+-- ============================================================================
+-- Quantum Anti-Cheat System - Testbench
+-- Copyright (C) 2025 adilson Oliveira konaet. All Rights Reserved.
+--
+-- PROPRIEDADE INTELECTUAL
+-- Este código é propriedade exclusiva de adilson Oliveira konaet e está protegido
+-- por direitos autorais e outras leis de propriedade intelectual.
+--
+-- LICENÇA
+-- O uso, cópia, modificação ou distribuição deste código é estritamente
+-- proibido sem autorização expressa por escrito de adilson Oliveira konaet.
+--
+-- PATENTES
+-- Este sistema está protegido pelas seguintes patentes:
+-- - BR102024000000-1: Sistema de Detecção Quântica de Comportamento
+-- - BR102024000000-2: Método de Análise de Estados Quânticos
+--
+-- CONFIDENCIALIDADE
+-- Este código contém informações confidenciais e proprietárias.
+-- A divulgação não autorizada é proibida.
 entity QuantumAntiCheat is
     Port (
         clk           : in  STD_LOGIC;                    -- Clock do sistema
@@ -269,6 +289,26 @@ end QuantumAntiCheat;
 ### Arquitetura Quântica
 
 ```vhdl
+-- ============================================================================
+-- Quantum Anti-Cheat System - Testbench
+-- Copyright (C) 2025 adilson Oliveira konaet. All Rights Reserved.
+--
+-- PROPRIEDADE INTELECTUAL
+-- Este código é propriedade exclusiva de adilson Oliveira konaet e está protegido
+-- por direitos autorais e outras leis de propriedade intelectual.
+--
+-- LICENÇA
+-- O uso, cópia, modificação ou distribuição deste código é estritamente
+-- proibido sem autorização expressa por escrito de adilson Oliveira konaet.
+--
+-- PATENTES
+-- Este sistema está protegido pelas seguintes patentes:
+-- - BR102024000000-1: Sistema de Detecção Quântica de Comportamento
+-- - BR102024000000-2: Método de Análise de Estados Quânticos
+--
+-- CONFIDENCIALIDADE
+-- Este código contém informações confidenciais e proprietárias.
+-- A divulgação não autorizada é proibida.
 architecture quantum_behavior of QuantumAntiCheat is
     type quantum_state is (NORMAL, SUSPICIOUS, CHEATING);
     signal current_state : quantum_state;
@@ -326,6 +366,26 @@ end quantum_behavior;
 O sistema inclui um testbench completo que simula diferentes comportamentos:
 
 ```vhdl
+-- ============================================================================
+-- Quantum Anti-Cheat System - Testbench
+-- Copyright (C) 2025 adilson Oliveira konaet. All Rights Reserved.
+--
+-- PROPRIEDADE INTELECTUAL
+-- Este código é propriedade exclusiva de adilson Oliveira konaet e está protegido
+-- por direitos autorais e outras leis de propriedade intelectual.
+--
+-- LICENÇA
+-- O uso, cópia, modificação ou distribuição deste código é estritamente
+-- proibido sem autorização expressa por escrito de adilson Oliveira konaet.
+--
+-- PATENTES
+-- Este sistema está protegido pelas seguintes patentes:
+-- - BR102024000000-1: Sistema de Detecção Quântica de Comportamento
+-- - BR102024000000-2: Método de Análise de Estados Quânticos
+--
+-- CONFIDENCIALIDADE
+-- Este código contém informações confidenciais e proprietárias.
+-- A divulgação não autorizada é proibida.
 entity QuantumAntiCheat_tb is
 end QuantumAntiCheat_tb;
 
@@ -407,6 +467,26 @@ end behavior;
 O sistema utiliza uma função quântica para calcular anomalias:
 
 ```vhdl
+-- ============================================================================
+-- Quantum Anti-Cheat System - Testbench
+-- Copyright (C) 2025 adilson Oliveira konaet. All Rights Reserved.
+--
+-- PROPRIEDADE INTELECTUAL
+-- Este código é propriedade exclusiva de adilson Oliveira konaet e está protegido
+-- por direitos autorais e outras leis de propriedade intelectual.
+--
+-- LICENÇA
+-- O uso, cópia, modificação ou distribuição deste código é estritamente
+-- proibido sem autorização expressa por escrito de adilson Oliveira konaet.
+--
+-- PATENTES
+-- Este sistema está protegido pelas seguintes patentes:
+-- - BR102024000000-1: Sistema de Detecção Quântica de Comportamento
+-- - BR102024000000-2: Método de Análise de Estados Quânticos
+--
+-- CONFIDENCIALIDADE
+-- Este código contém informações confidenciais e proprietárias.
+-- A divulgação não autorizada é proibida.
 function calculate_anomaly(
     current_state : std_logic_vector(63 downto 0);
     history      : std_logic_vector(511 downto 0)
@@ -557,7 +637,9 @@ cd anti-cheat-dashboard/frontend
 npm start
 ```
 
-O dashboard estará disponível em `http://localhost:3000`
+O dashboard estará disponível em `http://localhost:3000` `http://localhost:8001`
+
+`cd anti-cheat-dashboard/backend; python main.py`  
 
 ## Funcionalidades
 
@@ -585,3 +667,8 @@ Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias.
 4. Implementar sistema de notificações em tempo real
 
 ⭐️ Se este projeto te ajudou, considere dar uma estrela!
+
+![Captura de tela 2025-04-18 214944](https://github.com/user-attachments/assets/d415aaa8-bdff-4ce3-b6ef-682a393e4d50)
+![Captura de tela 2025-04-18 215002](https://github.com/user-attachments/assets/c169d69e-c752-407b-b77d-079dd2e2ae83)
+![Captura de tela 2025-04-18 215013](https://github.com/user-attachments/assets/af432407-7f7f-417d-bfeb-bf7469bce224)
+![Captura de tela 2025-04-18 215024](https://github.com/user-attachments/assets/aae7c912-2740-424f-8380-95af438f31a5)
