@@ -325,7 +325,7 @@ begin
 end function;
 ```
 
-## �� Próximos Passos
+## Próximos Passos
 
 1. Implementar entrelaçamento quântico entre múltiplos jogadores
 2. Adicionar suporte a qubits reais em processadores quânticos
@@ -342,4 +342,68 @@ Adilson Oliveira (Key)
 
 ---
 
-⭐️ Se este projeto te ajudou, considere dar uma estrela! 
+⭐️ Se este projeto te ajudou, considere dar uma estrela!
+
+# Anti-Cheat Dashboard
+
+Sistema de detecção de trapaça em jogos utilizando tecnologias quânticas e machine learning.
+
+## Requisitos
+
+- Node.js (versão 16 ou superior)
+- Python 3.8 ou superior
+- Git
+
+## Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/azykey/Anti-Chetater.git
+cd Anti-Chetater
+```
+
+2. Instale as dependências do frontend:
+```bash
+cd anti-cheat-dashboard/frontend
+npm install
+```
+
+3. Instale as dependências do backend:
+```bash
+cd ../backend
+pip install -r requirements.txt
+```
+
+## Execução
+
+1. Inicie o servidor backend:
+```bash
+cd anti-cheat-dashboard/backend
+python main.py
+```
+
+2. Em outro terminal, inicie o servidor frontend:
+```bash
+cd anti-cheat-dashboard/frontend
+npm start
+```
+
+O dashboard estará disponível em `http://localhost:3000`
+
+## Funcionalidades
+
+- Monitoramento em tempo real de jogadores
+- Detecção de trapaça usando algoritmos quânticos
+- Análise de comportamento usando machine learning
+- Dashboard interativo para visualização de dados
+
+## Estrutura do Projeto
+
+- `frontend/`: Aplicação React para o dashboard
+- `backend/`: Servidor Python com lógica de detecção
+- `src/`: Código fonte dos algoritmos de detecção
+- `docs/`: Documentação do projeto
+
+## Contribuição
+
+Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias. 
