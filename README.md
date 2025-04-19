@@ -406,4 +406,13 @@ O dashboard estará disponível em `http://localhost:3000`
 
 ## Contribuição
 
-Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias. 
+Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias.
+
+## Próximos Passos
+
+1. Implementar entrelaçamento quântico entre múltiplos jogadores
+2. Melhorar a precisão do detector de trapaça
+3. Adicionar suporte a mais jogos
+4. Implementar sistema de notificações em tempo real
+
+⭐️ Se este projeto te ajudou, considere dar uma estrela!
