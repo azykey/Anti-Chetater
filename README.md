@@ -209,7 +209,7 @@ Se você descobrir alguma vulnerabilidade de segurança, por favor envie um emai
 
 # Sistema Anti-Cheat Quântico para Jogos
 
-Um sistema anti-cheat revolucionário que utiliza princípios da computação quântica para detecção de trapaças em tempo real.
+Um sistema anti-cheat revolucionário que utiliza princípios da computação quântica para detecção de trapaças em tempo real, implementado em VHDL para execução em FPGA.
 
 ## 🌟 Características Quânticas
 
@@ -218,6 +218,7 @@ Um sistema anti-cheat revolucionário que utiliza princípios da computação qu
 - 🔄 Transições de estado quânticas
 - 🎮 Monitoramento em tempo real
 - 🎲 Sistema de confiança adaptativo
+- 🧮 Implementação em FPGA com VHDL
 
 ## 🧮 Arquitetura Quântica
 
@@ -226,18 +227,21 @@ O sistema implementa uma máquina de estados quânticos com três estados princi
 1. **NORMAL** (|0⟩)
    - Comportamento padrão do jogador
    - Baixa probabilidade de trapaça
+   - Estado quântico |0⟩
 
 2. **SUSPICIOUS** (|1⟩)
    - Estado de superposição
    - Requer monitoramento adicional
+   - Estado quântico |1⟩
 
 3. **CHEATING** (|2⟩)
    - Estado de trapaça confirmada
    - Alta probabilidade de detecção
+   - Estado quântico |2⟩
 
-## 📈 Matriz de Transição
+## 📈 Matriz de Transição Quântica
 
-O sistema utiliza uma matriz de probabilidade de transição:
+O sistema utiliza uma matriz de probabilidade de transição quântica:
 
 ```
 | 0.8  0.15  0.05 |  -- NORMAL
@@ -245,24 +249,191 @@ O sistema utiliza uma matriz de probabilidade de transição:
 | 0.1  0.2   0.7  |  -- CHEATING
 ```
 
-## 🔧 Implementação em FPGA
+## 🔧 Implementação em VHDL
 
-O sistema é implementado em VHDL para execução em FPGA:
+### Entidade Principal
 
 ```vhdl
 entity QuantumAntiCheat is
     Port (
-        clk           : in  STD_LOGIC;
-        reset         : in  STD_LOGIC;
-        start         : in  STD_LOGIC;
-        player_state  : in  STD_LOGIC_VECTOR(63 downto 0);
-        cheat_detected: out STD_LOGIC;
-        confidence    : out STD_LOGIC_VECTOR(7 downto 0)
+        clk           : in  STD_LOGIC;                    -- Clock do sistema
+        reset         : in  STD_LOGIC;                    -- Sinal de reset
+        start         : in  STD_LOGIC;                    -- Inicia a análise
+        player_state  : in  STD_LOGIC_VECTOR(63 downto 0);-- Estado do jogador
+        cheat_detected: out STD_LOGIC;                    -- Sinal de trapaça
+        confidence    : out STD_LOGIC_VECTOR(7 downto 0)  -- Nível de confiança
     );
 end QuantumAntiCheat;
 ```
 
-## 🎮 Como Usar
+### Arquitetura Quântica
+
+```vhdl
+architecture quantum_behavior of QuantumAntiCheat is
+    type quantum_state is (NORMAL, SUSPICIOUS, CHEATING);
+    signal current_state : quantum_state;
+    signal next_state    : quantum_state;
+    signal state_history : std_logic_vector(511 downto 0);
+    
+    -- Função de transição quântica
+    function quantum_transition(
+        current : quantum_state;
+        input   : std_logic_vector(63 downto 0)
+    ) return quantum_state is
+        variable probability : real;
+    begin
+        case current is
+            when NORMAL =>
+                if input(0) = '1' then
+                    return SUSPICIOUS;
+                else
+                    return NORMAL;
+                end if;
+            when SUSPICIOUS =>
+                if input(1) = '1' then
+                    return CHEATING;
+                else
+                    return NORMAL;
+                end if;
+            when CHEATING =>
+                return CHEATING;
+        end case;
+    end function;
+    
+begin
+    -- Processo de transição de estados
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            current_state <= NORMAL;
+        elsif rising_edge(clk) then
+            if start = '1' then
+                current_state <= quantum_transition(current_state, player_state);
+            end if;
+        end if;
+    end process;
+    
+    -- Saídas
+    cheat_detected <= '1' when current_state = CHEATING else '0';
+    confidence <= "11111111" when current_state = CHEATING else
+                 "10000000" when current_state = SUSPICIOUS else
+                 "00000000";
+end quantum_behavior;
+```
+
+## 🧪 Testbench Quântico
+
+O sistema inclui um testbench completo que simula diferentes comportamentos:
+
+```vhdl
+entity QuantumAntiCheat_tb is
+end QuantumAntiCheat_tb;
+
+architecture behavior of QuantumAntiCheat_tb is
+    -- Componente sob teste
+    component QuantumAntiCheat
+        Port (
+            clk           : in  STD_LOGIC;
+            reset         : in  STD_LOGIC;
+            start         : in  STD_LOGIC;
+            player_state  : in  STD_LOGIC_VECTOR(63 downto 0);
+            cheat_detected: out STD_LOGIC;
+            confidence    : out STD_LOGIC_VECTOR(7 downto 0)
+        );
+    end component;
+    
+    -- Sinais de teste
+    signal clk           : STD_LOGIC := '0';
+    signal reset         : STD_LOGIC := '1';
+    signal start         : STD_LOGIC := '0';
+    signal player_state  : STD_LOGIC_VECTOR(63 downto 0);
+    signal cheat_detected: STD_LOGIC;
+    signal confidence    : STD_LOGIC_VECTOR(7 downto 0);
+    
+    -- Período do clock
+    constant clk_period : time := 10 ns;
+    
+begin
+    -- Instância do componente
+    uut: QuantumAntiCheat port map (
+        clk => clk,
+        reset => reset,
+        start => start,
+        player_state => player_state,
+        cheat_detected => cheat_detected,
+        confidence => confidence
+    );
+    
+    -- Processo do clock
+    clk_process: process
+    begin
+        clk <= '0';
+        wait for clk_period/2;
+        clk <= '1';
+        wait for clk_period/2;
+    end process;
+    
+    -- Processo de teste
+    stim_proc: process
+    begin
+        -- Reset inicial
+        reset <= '1';
+        wait for 100 ns;
+        reset <= '0';
+        
+        -- Simulação de comportamento normal
+        for i in 0 to 9 loop
+            player_state <= std_logic_vector(to_unsigned(i, 64));
+            start <= '1';
+            wait for clk_period;
+            start <= '0';
+            wait for clk_period * 9;
+        end loop;
+        
+        -- Simulação de comportamento suspeito
+        player_state <= (others => '1');
+        start <= '1';
+        wait for clk_period;
+        start <= '0';
+        wait for clk_period * 9;
+        
+        wait;
+    end process;
+end behavior;
+```
+
+## 🔬 Análise de Anomalias Quânticas
+
+O sistema utiliza uma função quântica para calcular anomalias:
+
+```vhdl
+function calculate_anomaly(
+    current_state : std_logic_vector(63 downto 0);
+    history      : std_logic_vector(511 downto 0)
+) return real is
+    variable score : real := 0.0;
+    variable count : integer := 0;
+begin
+    -- Análise do histórico de estados
+    for i in 0 to 7 loop
+        if current_state = history(i*64+63 downto i*64) then
+            count := count + 1;
+        end if;
+    end loop;
+    
+    -- Cálculo do score quântico
+    score := real(count) / 8.0;
+    
+    -- Aplicação do princípio da incerteza
+    if score > 0.7 then
+        score := score * 0.8; -- Reduz a confiança em casos muito certos
+    end if;
+    
+    return score;
+end function;
+```
+
+## 🎮 Como Usar o Sistema
 
 1. Inicialize o sistema:
 ```vhdl
@@ -285,44 +456,37 @@ if cheat_detected = '1' then
 end if;
 ```
 
-## 🧪 Testbench
+## 📊 Dashboard de Monitoramento
 
-O sistema inclui um testbench completo que simula:
-- Comportamento normal
-- Comportamento suspeito
-- Comportamento de trapaça
+O sistema inclui um dashboard web para monitoramento em tempo real:
 
-```vhdl
--- Simulação de comportamento normal
-for i in 0 to 9 loop
-    player_state <= std_logic_vector(to_unsigned(i, 64));
-    start <= '1';
-    wait for clk_period;
-    start <= '0';
-    wait for clk_period * 9;
-end loop;
+1. Clone o repositório:
+```bash
+git clone https://github.com/azykey/Anti-Chetater.git
+cd Anti-Chetater
 ```
 
-## 🔬 Análise de Anomalias
+2. Instale as dependências do frontend:
+```bash
+cd anti-cheat-dashboard/frontend
+npm install
+```
 
-O sistema utiliza uma função quântica para calcular anomalias:
+3. Instale as dependências do backend:
+```bash
+cd ../backend
+pip install -r requirements.txt
+```
 
-```vhdl
-function calculate_anomaly(
-    current_state : std_logic_vector(63 downto 0);
-    history      : std_logic_vector(511 downto 0)
-) return real is
-    variable score : real := 0.0;
-    variable count : integer := 0;
-begin
-    for i in 0 to 7 loop
-        if current_state = history(i*64+63 downto i*64) then
-            count := count + 1;
-        end if;
-    end loop;
-    score := real(count) / 8.0;
-    return score;
-end function;
+4. Execute o sistema:
+```bash
+# Terminal 1 - Backend
+cd backend
+python main.py
+
+# Terminal 2 - Frontend
+cd frontend
+npm start
 ```
 
 ## Próximos Passos
@@ -339,6 +503,11 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 👤 Autor
 
 Adilson Oliveira (Key)
+Email: adilsonoliveira.2788@gmail.com
+
+## 🔄 Segurança
+
+Se você descobrir alguma vulnerabilidade de segurança, por favor envie um email para adilsonoliveira.2788@gmail.com em vez de abrir uma issue pública.
 
 ---
 
