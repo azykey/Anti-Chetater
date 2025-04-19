@@ -567,6 +567,9 @@ python main.py
 # Terminal 2 - Frontend
 cd frontend
 npm start
+
+# Terminal
+cd anti-cheat-dashboard/backend; python main.py  
 ```
 
 ## Próximos Passos
@@ -639,7 +642,6 @@ npm start
 
 O dashboard estará disponível em `http://localhost:3000` `http://localhost:8001`
 
-`cd anti-cheat-dashboard/backend; python main.py`  
 
 ## Funcionalidades
 
